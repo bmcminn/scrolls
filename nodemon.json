@@ -1,0 +1,10 @@
+{
+    "ignore": [
+        ".git"
+    ,   "node_modules/**/node_modules"
+    ,   "content/"
+    ,   "public/"
+    ,   "app/js"
+    ],
+    "ext": "js json env yaml"
+}
