@@ -3,4 +3,121 @@ app:
     name: Scrolls (working title)
 
 
+scripts:
+    dev:
+        - /js/vendor/yaml-front-matter.js
+        - /js/vendor/jquery.js
+        - /js/vendor/handlebars.js
+        - /js/vendor/ace/ace.js
+        - /js/vendor/markdown-it.js
+        - /js/main.js
+    # prod:
+    #     -
 
+editor:
+    themes:
+        -
+            id:     ambiance
+            name:   Ambiance
+        -
+            id:     chaos
+            name:   Chaos
+        -
+            id:     chrome
+            name:   Chrome
+        -
+            id:     clouds
+            name:   Clouds
+        -
+            id:     clouds_midnight
+            name:   Clouds Midnight
+        -
+            id:     cobalt
+            name:   Cobalt
+        -
+            id:     crimson_editor
+            name:   Crimson Editor
+        -
+            id:     dawn
+            name:   Dawn
+        -
+            id:     dreamweaver
+            name:   Dreamweaver
+        -
+            id:     eclipse
+            name:   Eclipse
+        -
+            id:     github
+            name:   Github
+        -
+            id:     gob
+            name:   GOB
+        -
+            id:     gruvbox
+            name:   Gruvbox
+        -
+            id:     idle_fingers
+            name:   Idle Fingers
+        -
+            id:     iplastic
+            name:   iPlastic
+        -
+            id:     katzenmilch
+            name:   Katzenmilch
+        -
+            id:     kr_theme
+            name:   Kr Theme
+        -
+            id:     merbivore
+            name:   Merbivore
+        -
+            id:     merbivore_soft
+            name:   Merbivore Soft
+        -
+            id:     mono_industrial
+            name:   Mono Industrial
+        -
+            id:     monokai
+            name:   Monokai
+        -
+            id:     pastel_on_dark
+            name:   Pastel On Dark
+        -
+            id:     solarized_dark
+            name:   Solarized Dark
+        -
+            id:     solarized_light
+            name:   Solarized Light
+        -
+            id:     textmate
+            name:   TextMate
+        -
+            id:     tomorrow
+            name:   Tomorrow
+        -
+            id:     tomorrow_night
+            name:   Tomorrow Night
+        -
+            id:     tomorrow_night_blue
+            name:   Tomorrow Night Blue
+        -
+            id:     tomorrow_night_bright
+            name:   Tomorrow Night Bright
+        -
+            id:     tomorrow_night_eighties
+            name:   Tomorrow Night Eighties
+        -
+            id:     twilight
+            name:   Twilight
+        -
+            id:     kuroir
+            name:   Kuroir
+        -
+            id:     sqlserver
+            name:   SQL Server
+        -
+            id:     terminal
+            name:   Terminal
+        -
+            id:     xcode
+            name:   XCode

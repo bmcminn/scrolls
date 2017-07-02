@@ -1,3 +1,5 @@
+require('dotenv-safe').load();
+
 const MDit      = require('markdown-it');
 const md        = new MDit();
 
@@ -8,14 +10,14 @@ const path      = require('path');
 
 const Express   = require('express');
 const exphbs    = require('express-handlebars');
-
+const yamlFM    = require('yaml-front-matter');
 
 
 global.VIEWS_DIR    = path.join(process.cwd(), 'app/views');
+global.VIEWS_EXT    = '.hbs';
 global.APP_DIR      = path.join(process.cwd(), 'app');
 global.PUBLIC_DIR   = path.join(process.cwd(), 'public');
 global.CONTENT_DIR  = path.join(process.cwd(), 'content');
-
 
 const app = new Express();
 
@@ -32,14 +34,15 @@ app.use(Express.static('public'));
 // SET VIEWS MODULE
 app.set('views', VIEWS_DIR);
 
-app.engine('.hbs', exphbs({
+app.engine(VIEWS_EXT, exphbs({
     defaultLayout: 'main'
 ,   layoutsDir:   'app/views/layouts'
 ,   partialsDir:  'app/views/partials'
-,   extname: '.hbs'
+,   extname: VIEWS_EXT
 ,   helpers: require('./app/hbs-helpers.js')
 }));
-app.set('view engine', '.hbs');
+
+app.set('view engine', VIEWS_EXT);
 
 
 // INITIAL HOMEPAGE ROUTE
@@ -48,4 +51,34 @@ app.get('/', function(req, res) {
 });
 
 
-app.listen(3005);
+// INITIAL HOMEPAGE ROUTE
+app.get('/:filename', function(req, res) {
+
+    let model = app.get('model');
+
+    let filename = req.params.filename;
+
+    let filepath = path.join(CONTENT_DIR, filename+'.md');
+
+    if (fs.exists(filepath)) {
+
+        model.file = yamlFM.loadFront(filepath, 'body');
+
+        model.file.content = fs.read(filepath);
+
+        console.log(model);
+
+        res.render('home', model);
+        return;
+
+    }
+
+
+    res.status(404).render('404', model);
+
+});
+
+
+app.listen(process.env.PORT || 3005, () => {
+    console.log(`Local site: http://localhost:${process.env.PORT}`);
+});

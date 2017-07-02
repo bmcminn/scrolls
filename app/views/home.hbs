@@ -1,11 +1,29 @@
 
-{{> toolbar }}
+<div class="columns">
+    <aside class="column">
+        {{> toolbar }}
+        <div id="editor" editor>{{{ file.content }}}</div>
+    </aside>
 
-<div id="editor" editor></div>
+    <main class="column">
+        <h1 class="title">{{ file.campaign.title }}</h1>
+        <div author class="subtitle">By: {{ file.campaign.author }}</div>
+        <div id="render" render></div>
+    </main>
+</div>
 
-<div id="render"></div>
+{{#each scripts.dev}}
+<script src="{{ this }}"></script>
+{{/each}}
 
+{{!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.7/ace.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.1/markdown-it.min.js"></script>
 <script src="/js/main.js"></script>
+ --}}
+
+<script>
+window.pageModel = {{{json file }}};
+</script>
