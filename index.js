@@ -78,7 +78,8 @@ app.get('/:filename', function(req, res) {
 
 });
 
+const PORT = process.env.PORT || 3005
 
-app.listen(process.env.PORT || 3005, () => {
-    console.log(`Local site: http://localhost:${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Local site: http://localhost:${PORT}`);
 });
